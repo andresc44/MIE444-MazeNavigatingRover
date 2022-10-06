@@ -36,3 +36,5 @@ Type `git clone` add 1 whitespace, right click on the screen, and paste from you
 On Git Bash, type `ls`, and you should see MIE444-MazeNavigatingRover appear as a subdirectory
 
 Now your github is linked to the project. Future steps will show you how to push and pull your progress
+
+If you are curious, this shows a quick overview of how Git works and how branches work: https://www.freecodecamp.org/news/git-and-github-for-beginners/
