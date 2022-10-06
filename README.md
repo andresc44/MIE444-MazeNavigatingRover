@@ -1,4 +1,7 @@
 # MIE444-MazeNavigatingRover
+
+## Full Software Document: https://docs.google.com/document/d/1lz8dCtAcfdEPn22oHQNxec-p9zRUxTynh3FODX5LQ3g/edit?usp=sharing
+
 Course project to autonomously navigate through a maze and retrieve a wooden block
 
 Make a Github account
