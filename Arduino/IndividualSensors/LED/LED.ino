@@ -1,9 +1,8 @@
+#define LED 13  // The pin the LED is connected to
 void setup() {
-  // put your setup code here, to run once:
-
+  pinMode(LED, OUTPUT); // Declare the LED as an output
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  digitalWrite(LED, HIGH); // Turn the LED on
 }

@@ -1,4 +1,12 @@
-int pin = 1;
+#include <Pinout.h>
+#include <Accessories.h>
+#include <Direction.h>
+#include <Dropoff.h>
+#include <LidarObstacleAvoidance.h>
+#include <Localization.h>
+#include <ObstacleAvoidance.h>
+#include <Pickup.h>
+
 //  Congrats, you can see this message!
 //hello, this is code
 void setup() {
