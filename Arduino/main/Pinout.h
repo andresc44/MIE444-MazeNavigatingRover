@@ -1,1 +1,2 @@
-// This is where all the pinouts of the Arduino go
+const uint8_t TrigPin1 9;
+const uint8_t EchoPin1 10;

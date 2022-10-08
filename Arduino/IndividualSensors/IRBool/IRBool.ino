@@ -9,7 +9,6 @@ void setup()
 
 
   pinMode (IRSensor, INPUT); // sensor pin INPUT
-  pinMode (LED, OUTPUT); // Led pin OUTPUT
 }
 
 void loop()
