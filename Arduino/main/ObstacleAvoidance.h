@@ -1,4 +1,4 @@
-const float speedSoundcm = 0.034; //units of cm/us
+const float SPEEDSOUND = 0.17; //units of mm/us, accounting for double trajectory
 float pingTime1 = 0;
 float pingTime2 = 0;
 float pingTime3 = 0;
@@ -10,53 +10,54 @@ struct UltraArray {
 };
 
 void Ultrasonic_Setup() {
-  pinMode(TrigPin1, OUTPUT);
-  pinMode(EchoPin1, INPUT);
-  pinMode(TrigPin2, OUTPUT);
-  pinMode(EchoPin2, INPUT);
-  pinMode(TrigPin3, OUTPUT);
-  pinMode(EchoPin3, INPUT);
-  pinMode(TrigPin4, OUTPUT);
-  pinMode(EchoPin4, INPUT);
-  pinMode(TrigPin5, OUTPUT);
-  pinMode(EchoPin5, INPUT);
+  pinMode(TRIGPIN1, OUTPUT);
+  pinMode(ECHOPIN1, INPUT);
+  pinMode(TRIGPIN2, OUTPUT);
+  pinMode(ECHOPIN2, INPUT);
+  pinMode(TRIGPIN3, OUTPUT);
+  pinMode(ECHOPIN3, INPUT);
+  pinMode(TRIGPIN4, OUTPUT);
+  pinMode(ECHOPIN4, INPUT);
+  pinMode(TRIGPIN5, OUTPUT);
+  pinMode(ECHOPIN5, INPUT);
 }
 
 UltraArray Ultrasonic_Heartbeat() {
   UltraArray ultra;
   
-  digitalWrite(TrigPin1, LOW);
-  digitalWrite(TrigPin2, LOW);
-  digitalWrite(TrigPin3, LOW);
-  digitalWrite(TrigPin4, LOW);
-  digitalWrite(TrigPin5, LOW);
+  digitalWrite(TRIGPIN1, LOW);
+  digitalWrite(TRIGPIN2, LOW);
+  digitalWrite(TRIGPIN3, LOW);
+  digitalWrite(TRIGPIN4, LOW);
+  digitalWrite(TRIGPIN5, LOW);
   
   delayMicroseconds(2000);
-  digitalWrite(TrigPin1, HIGH);
-  digitalWrite(TrigPin2, HIGH);
-  digitalWrite(TrigPin3, HIGH);
-  digitalWrite(TrigPin4, HIGH);
-  digitalWrite(TrigPin5, HIGH);
+  
+  digitalWrite(TRIGPIN1, HIGH);
+  digitalWrite(TRIGPIN2, HIGH);
+  digitalWrite(TRIGPIN3, HIGH);
+  digitalWrite(TRIGPIN4, HIGH);
+  digitalWrite(TRIGPIN5, HIGH);
   
   delayMicroseconds(10);
   
-  digitalWrite(TrigPin1, LOW);
-  digitalWrite(TrigPin2, LOW);
-  digitalWrite(TrigPin3, LOW);
-  digitalWrite(TrigPin4, LOW);
-  digitalWrite(TrigPin5, LOW);
+  digitalWrite(TRIGPIN1, LOW);
+  digitalWrite(TRIGPIN2, LOW);
+  digitalWrite(TRIGPIN3, LOW);
+  digitalWrite(TRIGPIN4, LOW);
+  digitalWrite(TRIGPIN5, LOW);
   
-  pingTime1 = pulseIn (EchoPin1, HIGH); //unit us
-  pingTime2 = pulseIn (EchoPin2, HIGH); //unit us
-  pingTime3 = pulseIn (EchoPin3, HIGH); //unit us
-  pingTime4 = pulseIn (EchoPin4, HIGH); //unit us
-  pingTime5 = pulseIn (EchoPin5, HIGH); //unit us
+  pingTime1 = pulseIn (ECHOPIN1, HIGH); //unit us
+  pingTime2 = pulseIn (ECHOPIN2, HIGH); //unit us
+  pingTime3 = pulseIn (ECHOPIN3, HIGH); //unit us
+  pingTime4 = pulseIn (ECHOPIN4, HIGH); //unit us
+  pingTime5 = pulseIn (ECHOPIN5, HIGH); //unit us
 
-  ultra.array[0] = 50 * pingTime1 * speedSoundcm; //unit mm
-  ultra.array[1] = 50 * pingTime2 * speedSoundcm; //unit mm
-  ultra.array[2] = 50 * pingTime3 * speedSoundcm; //unit mm
-  ultra.array[3] = 50 * pingTime4 * speedSoundcm; //unit mm
-  ultra.array[4] = 50 * pingTime5 * speedSoundcm; //unit mm
+  ultra.array[0] = pingTime1 * SPEEDSOUND; //unit mm
+  ultra.array[1] = pingTime2 * SPEEDSOUND; //unit mm
+  ultra.array[2] = pingTime3 * SPEEDSOUND; //unit mm
+  ultra.array[3] = pingTime4 * SPEEDSOUND; //unit mm
+  ultra.array[4] = pingTime5 * SPEEDSOUND; //unit mm
   
   return ultra;
 }

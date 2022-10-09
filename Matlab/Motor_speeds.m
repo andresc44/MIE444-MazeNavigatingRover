@@ -1,6 +1,6 @@
 clc, clear, close all;
 %% Input
-angle = 147;
+angle = 53;
 
 %%transform to angle
 angle = angle*pi/180;
