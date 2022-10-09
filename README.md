@@ -2,6 +2,8 @@
 
 ## Full Software Document: https://docs.google.com/document/d/1lz8dCtAcfdEPn22oHQNxec-p9zRUxTynh3FODX5LQ3g/edit?usp=sharing
 
+##LucidChart of Software Block Diagram https://lucid.app/lucidchart/8b5c168e-47c8-4b2c-ab84-a09593147f4b/edit?invitationId=inv_d3df19bc-a538-469b-985c-e3eddbc88c98#
+
 Course project to autonomously navigate through a maze and retrieve a wooden block
 
 Make a Github account
