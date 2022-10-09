@@ -4,8 +4,6 @@
 Servo myServo;
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
-uint8_t pos = 0;
-
 void TOF_Setup() {
   while (! Serial) {
     delay(1);
@@ -15,10 +13,12 @@ void TOF_Setup() {
     while(1);
   }
   lox.startRangeContinuous();
+  Serial.println(F("TOF Ready"));
 }
 
 void Servo_Setup() {
-  myservo.attach(SERVOPIN);
+  myServo.attach(SERVOPIN);
+  Serial.println(F("Servo Ready"));
 }
 
 uint16_t TOF_Heartbeat() {
@@ -31,5 +31,5 @@ uint16_t TOF_Heartbeat() {
 }
 
 void Move_Servo(uint8_t pos) {
-  myservo.write(pos);
+  myServo.write(pos);
 }

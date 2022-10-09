@@ -1,18 +1,19 @@
 struct IRArray {
     bool array[4];
 };
+IRArray ir;
 
-void IR_setup() {
-  pinMode (IRSensor1, INPUT);
-  pinMode (IRSensor2, INPUT);
-  pinMode (IRSensor3, INPUT);
-  pinMode (IRSensor4, INPUT);
+void IR_Setup() {
+  pinMode (IRPIN1, INPUT);
+  pinMode (IRPIN2, INPUT);
+  pinMode (IRPIN3, INPUT);
+  pinMode (IRPIN4, INPUT);
+  Serial.println(F("IR Sensors Ready"));
 }
 
 IRArray IR_Heartbeat() {
-  IRArray IR;
-  IR.array[0] = digitalRead (IRPIN1);
-  IR.array[1] = digitalRead (IRPIN1);
-  IR.array[2] = digitalRead (IRPIN1);
-  IR.array[3] = digitalRead (IRPIN1);
+  ir.array[0] = digitalRead (IRPIN1);
+  ir.array[1] = digitalRead (IRPIN2);
+  ir.array[2] = digitalRead (IRPIN3);
+  ir.array[3] = digitalRead (IRPIN4);
 }

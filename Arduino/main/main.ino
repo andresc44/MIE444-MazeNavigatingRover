@@ -2,43 +2,45 @@
 //Authors: Andres Cervera Rozo, Christopher Tong,
 //         Liam Toner, Nathalie Cristofaro
 
-#include 'Pinout.h'
-#include 'Accessories.h'
-#include 'Direction.h'
-#include 'Communications.h'
-#include 'Localization.h'
-#include 'ObstacleAvoidance.h'
-#include 'BlockRetrieval.h'
+#include "Pinout.h"
+#include "Accessories.h"
+#include "Direction.h"
+#include "Communications.h"
+#include "Localization.h"
+#include "ObstacleAvoidance.h"
+#include "BlockRetrieval.h"
 
 //Constants as CONSTANT
 //Functions as Function_Name
 //Varaiables as variableName
 //Class as Class
 
-array uint16_t[9] piCommands = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+uint16_t piCommands[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+uint8_t dip = 0;
+uint16_t tof = 0;
 
 void setup() {
   Serial.begin(9600);
   TOF_Setup();
   Ultrasonic_Setup();
   IR_Setup();
-  DIP_Setup();
+  Accessory_Setup();
   DC_Motor_Setup();
   Servo_Setup();
 }
 
 void loop() {
   //outputs
+  if (Receive_From_Pi(){
+    Move_Robot(piMsg.motorsArray);
+    Move_Servo(piMsg.servoAngle);
+    Feedback(piMsg.feedbackArray);
+  }
   
-  piCommands = Receive_From_Pi();
-  Move_Robot(piCommands[0:5]);
-  Move_Servo(piCommands[6]);
-  Feedback(piCommands[7:8];
-
   //inputs
   tof = TOF_Heartbeat();
-  ultra = Ultrasonic_Heartbeat();
-  ir = IR_Heartbeat();
+  Ultrasonic_Heartbeat();
+  IR_Heartbeat();
   dip = DIP_Heartbeat();
-  Send_To_Pi(ultra, ir, tof, dip);
+  Send_To_Pi(ultra.array, ir.array, tof, dip);
 }

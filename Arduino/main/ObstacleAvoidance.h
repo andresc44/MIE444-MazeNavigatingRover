@@ -9,6 +9,8 @@ struct UltraArray {
     uint16_t array[5];
 };
 
+UltraArray ultra;
+
 void Ultrasonic_Setup() {
   pinMode(TRIGPIN1, OUTPUT);
   pinMode(ECHOPIN1, INPUT);
@@ -20,11 +22,10 @@ void Ultrasonic_Setup() {
   pinMode(ECHOPIN4, INPUT);
   pinMode(TRIGPIN5, OUTPUT);
   pinMode(ECHOPIN5, INPUT);
+  Serial.println(F("Ultrasonics Ready"));
 }
 
-UltraArray Ultrasonic_Heartbeat() {
-  UltraArray ultra;
-  
+void Ultrasonic_Heartbeat() {
   digitalWrite(TRIGPIN1, LOW);
   digitalWrite(TRIGPIN2, LOW);
   digitalWrite(TRIGPIN3, LOW);
@@ -58,6 +59,4 @@ UltraArray Ultrasonic_Heartbeat() {
   ultra.array[2] = pingTime3 * SPEEDSOUND; //unit mm
   ultra.array[3] = pingTime4 * SPEEDSOUND; //unit mm
   ultra.array[4] = pingTime5 * SPEEDSOUND; //unit mm
-  
-  return ultra;
 }
