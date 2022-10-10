@@ -17,9 +17,10 @@ enter following commands
 
 Note path used to generate key. For me it was /c/Users/Andre/.ssh/id_ed25519
 
-Run command ` clip < /c/Users/Andre/.ssh/id_ed25519.pub`
+Run command ` clip < /c/Users/Andre/.ssh/id_ed25519.pub` (if on windows)
+            go to file and open on Linux and potentially on Mac
 
-Follow this link and click 'New SSH Key'
+Follow this link and click 'New SSH Key': https://github.com/settings/keys
 
 Choose a name like 'SurfaceBookKey' that is personal to that machine
 
