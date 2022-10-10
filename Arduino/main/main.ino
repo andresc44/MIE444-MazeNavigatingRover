@@ -31,7 +31,7 @@ void setup() {
 
 void loop() {
   //outputs
-  if (Receive_From_Pi(){
+  if (Receive_From_Pi()){
     Move_Robot(piMsg.motorsArray);
     Move_Servo(piMsg.servoAngle);
     Feedback(piMsg.feedbackArray);
