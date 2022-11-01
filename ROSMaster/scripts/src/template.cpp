@@ -1,7 +1,7 @@
 #include <ros/ros.h> //always keep
 #include <std_msgs/Int64.h> //topic data types
 #include <std_msgs/Bool.h>
-#include <std_msgs/Uint8.h>
+#include <std_msgs/UInt8.h>
 #include <std_srvs/SetBool.h>
 
 class ClassName {
@@ -45,7 +45,7 @@ class ClassName {
     void publishAll() {
 
         std_msgs::Bool new_msg1;
-        std_msgs::Uint8 new_msg2;
+        std_msgs::UInt8 new_msg2;
         if (foo + bar > 80) {
             new_msg1.data = true;
             new_msg2.data = 255;
