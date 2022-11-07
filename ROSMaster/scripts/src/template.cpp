@@ -6,13 +6,13 @@
 
 class ClassName {
     private:
-    int foo; //initialize variables
-    int bar;
-    ros::Publisher pub1; //create publisher object
-    ros::Publisher pub2; //create publisher object
-    ros::Subscriber sub1; //subscriber object
-    ros::Subscriber sub2; //subscriber object
-    ros::ServiceServer serv1; //service object
+        int foo; //initialize variables
+        int bar;
+        ros::Publisher pub1; //create publisher object
+        ros::Publisher pub2; //create publisher object
+        ros::Subscriber sub1; //subscriber object
+        ros::Subscriber sub2; //subscriber object
+        ros::ServiceServer serv1; //service object
     
     public:
     ClassName(ros::NodeHandle *nh) {
@@ -79,12 +79,12 @@ class ClassName {
 
 int main (int argc, char **argv)
 {
-    int param_variable;
+    int sleep_rate;
     ros::init(argc, argv, "nodeName"); //Name of the node
     ros::NodeHandle nh;
-    ros::param::get("/my_param_name", param_variable);
+    ros::param::get("/my_param_name", sleep_rate);
 
-    ros::Rate r(param_variable); // Hz
+    ros::Rate r(sleep_rate); // Hz
     ClassName cn = ClassName(&nh);
     while (ros::ok())
         {

@@ -207,4 +207,7 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable(template src/template.cpp)
 target_link_libraries(template ${catkin_LIBRARIES})
+
+add_executable(wheelController src/wheelController.cpp)
+target_link_libraries(wheelController ${catkin_LIBRARIES})
 #add_dependencies(talker beginner_tutorials_generate_messages_cpp)
