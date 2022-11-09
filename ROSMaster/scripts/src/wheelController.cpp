@@ -13,7 +13,7 @@ class DirectionCoversion {
         const int pwm_max = 255;
         const float wheel_radius = 0.0058/2; //58mm in meters
         const float diam2centre = 0.08; //8cm in meters
-        const int max_rpm = 200; //from experimental data, mutl by 2pi/60 for rad/s
+        const int max_rpm = 82; //from experimental data, mutl by 2pi/60 for rad/s
         //trans_matrix*cmd_vel ./ radius_wheel / max_rad/s
         const double conv_factor = 30*pwm_max/(3.1416*wheel_radius*max_rpm);
         const double transform_matrix [3][3] = {
@@ -88,10 +88,10 @@ class DirectionCoversion {
 
 int main (int argc, char **argv)
 {
-    int sleep_rate;
+    int sleep_rate = 30.0;
     ros::init(argc, argv, "wheelController"); //Name of the node
     ros::NodeHandle nh;
-    ros::param::get("/global_rate", sleep_rate);
+    //ros::param::get("/wheelController/global_rate", sleep_rate);
 
     ros::Rate r(sleep_rate); // Hz
     DirectionCoversion dc = DirectionCoversion(&nh);

@@ -88,15 +88,15 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <model name='FirstWorld'>
-      <pose>-1.2192 -0.6096 0 0 -0 0</pose>
+      <pose>-1.2192 -0.6096 0.1524 0 -0 0</pose>
       <link name='LeftWall'>
         <collision name='LeftWall_Collision'>
           <geometry>
             <box>
-              <size>1.2192 0.0254 0.3048</size>
+              <size>1.2192 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -112,10 +112,10 @@
           </surface>
         </collision>
         <visual name='LeftWall_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>1.2192 0.0254 0.3048</size>
+              <size>1.2192 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -138,10 +138,10 @@
         <collision name='TopWall_Collision'>
           <geometry>
             <box>
-              <size>2.4384 0.0254 0.3048</size>
+              <size>2.4384 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -157,10 +157,10 @@
           </surface>
         </collision>
         <visual name='TopWall_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>2.4384 0.0254 0.3048</size>
+              <size>2.4384 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -183,10 +183,10 @@
         <collision name='RightWall_Collision'>
           <geometry>
             <box>
-              <size>1.2192 0.0254 0.3048</size>
+              <size>1.2192 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -202,10 +202,10 @@
           </surface>
         </collision>
         <visual name='RightWall_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>1.2192 0.0254 0.3048</size>
+              <size>1.2192 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -228,10 +228,10 @@
         <collision name='BottomWall_Collision'>
           <geometry>
             <box>
-              <size>2.4384 0.0254 0.3048</size>
+              <size>2.4384 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -247,10 +247,10 @@
           </surface>
         </collision>
         <visual name='BottomWall_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>2.4384 0.0254 0.3048</size>
+              <size>2.4384 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -273,10 +273,10 @@
         <collision name='Wall1_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -292,10 +292,10 @@
           </surface>
         </collision>
         <visual name='Wall1_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -318,10 +318,10 @@
         <collision name='Wall2_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -337,10 +337,10 @@
           </surface>
         </collision>
         <visual name='Wall2_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -363,10 +363,10 @@
         <collision name='Wall3_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -382,10 +382,10 @@
           </surface>
         </collision>
         <visual name='Wall3_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -408,10 +408,10 @@
         <collision name='Wall4_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -427,10 +427,10 @@
           </surface>
         </collision>
         <visual name='Wall4_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -453,10 +453,10 @@
         <collision name='Wall5_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -472,10 +472,10 @@
           </surface>
         </collision>
         <visual name='Wall5_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -498,10 +498,10 @@
         <collision name='Wall6_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -517,10 +517,10 @@
           </surface>
         </collision>
         <visual name='Wall6_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -543,10 +543,10 @@
         <collision name='Wall7_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -562,10 +562,10 @@
           </surface>
         </collision>
         <visual name='Wall7_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -588,10 +588,10 @@
         <collision name='Wall8_Collision'>
           <geometry>
             <box>
-              <size>1.2192 0.0254 0.3048</size>
+              <size>1.2192 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -607,10 +607,10 @@
           </surface>
         </collision>
         <visual name='Wall8_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>1.2192 0.0254 0.3048</size>
+              <size>1.2192 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -633,10 +633,10 @@
         <collision name='Wall9_Collision'>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -652,10 +652,10 @@
           </surface>
         </collision>
         <visual name='Wall9_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -678,10 +678,10 @@
         <collision name='Wall10_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -697,10 +697,10 @@
           </surface>
         </collision>
         <visual name='Wall10_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -723,10 +723,10 @@
         <collision name='Wall11_Collision'>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -742,10 +742,10 @@
           </surface>
         </collision>
         <visual name='Wall11_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -768,10 +768,10 @@
         <collision name='Wall12_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -787,10 +787,10 @@
           </surface>
         </collision>
         <visual name='Wall12_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -813,10 +813,10 @@
         <collision name='Wall13_Collision'>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -832,10 +832,10 @@
           </surface>
         </collision>
         <visual name='Wall13_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -858,10 +858,10 @@
         <collision name='Wall14_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -877,10 +877,10 @@
           </surface>
         </collision>
         <visual name='Wall14_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -903,10 +903,10 @@
         <collision name='Wall15_Collision'>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -922,10 +922,10 @@
           </surface>
         </collision>
         <visual name='Wall15_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -948,10 +948,10 @@
         <collision name='Wall16_Collision'>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -967,10 +967,10 @@
           </surface>
         </collision>
         <visual name='Wall16_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.3048 0.0254 0.3048</size>
+              <size>0.3048 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -993,10 +993,10 @@
         <collision name='Wall17_Collision'>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -1012,10 +1012,10 @@
           </surface>
         </collision>
         <visual name='Wall17_Visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.1524 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.6096 0.0254 0.3048</size>
+              <size>0.6096 0.0127 0.3048</size>
             </box>
           </geometry>
           <material>
@@ -1037,10 +1037,10 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>792 904000000</sim_time>
-      <real_time>220 260022091</real_time>
-      <wall_time>1667778928 877970386</wall_time>
-      <iterations>214224</iterations>
+      <sim_time>926 214000000</sim_time>
+      <real_time>149 517201800</real_time>
+      <wall_time>1667942214 766616760</wall_time>
+      <iterations>133310</iterations>
       <model name='FirstWorld'>
         <pose>-1.2192 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -1181,16 +1181,493 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='rover'>
+        <pose>0.459364 0.45483 0.028896 1.4e-05 -5e-06 -1.58673</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>0.459364 0.45483 0.028896 1.4e-05 -5e-06 -1.58673</pose>
+          <velocity>1e-05 -3.7e-05 -0.004882 7.5e-05 5.8e-05 0.000137</velocity>
+          <acceleration>0.007332 -0.001435 -9.76379 0.149009 0.118978 1.3466</acceleration>
+          <wrench>0.013055 -0.002556 -17.3854 0 -0 0</wrench>
+        </link>
+        <link name='lidar_link'>
+          <pose>0.422682 0.448665 0.267284 1.2e-05 -7e-06 -1.40556</pose>
+          <velocity>-2.3e-05 -0 -0.00489 3e-06 3e-06 2e-06</velocity>
+          <acceleration>-0.060006 0.044446 -9.77962 0 -0 0</acceleration>
+          <wrench>-0.012001 0.008889 -1.95592 0 -0 0</wrench>
+        </link>
+        <link name='wheel1_link'>
+          <pose>0.537924 0.407789 0.028897 -2e-05 -0.496334 1.03129</pose>
+          <velocity>-1.1e-05 -0.000181 -0.004734 0.000375 0.00065 -0.00101</velocity>
+          <acceleration>0.001348 -0.20227 -9.48435 -2.22931 1.11248 2.19858</acceleration>
+          <wrench>8.2e-05 -0.012318 -0.577602 0 -0 0</wrench>
+        </link>
+        <link name='wheel2_link'>
+          <pose>0.379347 0.410315 0.028897 0 -0.248324 -1.06312</pose>
+          <velocity>-8.8e-05 -3.2e-05 -0.005208 0.001189 -0.002107 -0.001009</velocity>
+          <acceleration>-0.155608 -0.055117 -10.4708 2.82225 -0.463476 -0.941521</acceleration>
+          <wrench>-0.009477 -0.003357 -0.637675 0 -0 0</wrench>
+        </link>
+        <link name='wheel3_link'>
+          <pose>0.460823 0.546385 0.028897 -1.3e-05 -0.496471 3.12567</pose>
+          <velocity>0.000124 3.4e-05 -0.005237 -0.004141 0.000111 -0.001015</velocity>
+          <acceleration>0.136952 0.153393 -10.5707 -1.99515 0.183941 -0.955811</acceleration>
+          <wrench>0.00834 0.009342 -0.643759 0 -0 0</wrench>
+        </link>
+      </model>
       <light name='sun'>
         <pose>0 0 10 0 -0 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-0.399206 -1.3178 12.1931 4.6e-05 1.5698 1.45624</pose>
+        <pose>1.65357 1.92009 4.08137 0 1.0018 -2.40291</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='rover'>
+      <link name='base_link'>
+        <inertial>
+          <pose>0 -3e-06 0.072415 0 -0 0</pose>
+          <mass>1.7806</mass>
+          <inertia>
+            <ixx>0.00357991</ixx>
+            <ixy>-3.16208e-10</ixy>
+            <ixz>-2.93152e-10</ixz>
+            <iyy>0.00357991</iyy>
+            <iyz>3.97745e-07</iyz>
+            <izz>0.00189075</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__US1_link_collision_1'>
+          <pose>0.087637 -6.4e-05 0.14173 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US1_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__US2_link_collision_2'>
+          <pose>0 -0.087637 0.14173 0 0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US2_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__US3_link_collision_3'>
+          <pose>-0.087637 -6.4e-05 0.14173 0 -0 3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US3_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__US4_link_collision_4'>
+          <pose>0 0.087637 0.14173 0 -0 1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US4_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__US1_link_visual_1'>
+          <pose>0.087637 -6.4e-05 0.14173 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US1_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__US2_link_visual_2'>
+          <pose>0 -0.087637 0.14173 0 0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US2_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__US3_link_visual_3'>
+          <pose>-0.087637 -6.4e-05 0.14173 0 -0 3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US3_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__US4_link_visual_4'>
+          <pose>0 0.087637 0.14173 0 -0 1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/US4_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='lidar_joint' type='revolute'>
+        <pose relative_to='base_link'>0.00675 -0.036576 0.238388 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>lidar_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <effort>1000</effort>
+            <velocity>42</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='lidar_link'>
+        <pose relative_to='lidar_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='lidar_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/lidar_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='lidar_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/lidar_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel1_joint' type='revolute'>
+        <pose relative_to='base_link'>0.045784 0.079299 0 0 -0 2.618</pose>
+        <parent>base_link</parent>
+        <child>wheel1_link</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <effort>1000</effort>
+            <velocity>8.59</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel1_link'>
+        <pose relative_to='wheel1_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 -0.011525 -0 0 -0 0</pose>
+          <mass>0.0609006</mass>
+          <inertia>
+            <ixx>1.55008e-05</ixx>
+            <ixy>-1.80668e-36</ixy>
+            <ixz>0</ixz>
+            <iyy>2.56087e-05</iyy>
+            <iyz>2.40368e-21</iyz>
+            <izz>1.55008e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel1_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/wheel1_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel1_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/wheel1_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel2_joint' type='revolute'>
+        <pose relative_to='base_link'>0.045784 -0.079299 0 0 -0 0.523599</pose>
+        <parent>base_link</parent>
+        <child>wheel2_link</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <effort>1000</effort>
+            <velocity>8.59</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel2_link'>
+        <pose relative_to='wheel2_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 -0.011525 -0 0 -0 0</pose>
+          <mass>0.0609006</mass>
+          <inertia>
+            <ixx>1.55008e-05</ixx>
+            <ixy>-1.97582e-23</ixy>
+            <ixz>-1.50463e-36</ixz>
+            <iyy>2.56087e-05</iyy>
+            <iyz>-1.49959e-23</iyz>
+            <izz>1.55008e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel2_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/wheel2_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel2_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/wheel2_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel3_joint' type='revolute'>
+        <pose relative_to='base_link'>-0.091567 0 0 0 0 -1.5708</pose>
+        <parent>base_link</parent>
+        <child>wheel3_link</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <effort>1000</effort>
+            <velocity>8.59</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel3_link'>
+        <pose relative_to='wheel3_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 -0.011525 0 0 -0 0</pose>
+          <mass>0.0609006</mass>
+          <inertia>
+            <ixx>1.55008e-05</ixx>
+            <ixy>8.47033e-22</ixy>
+            <ixz>-2.25695e-36</ixz>
+            <iyy>2.56087e-05</iyy>
+            <iyz>5.64237e-37</iyz>
+            <izz>1.55008e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel3_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/wheel3_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel3_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andres/rover_ws/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/meshes/wheel3_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>0.4572 0.4572 0 0 0 -1.5707</pose>
+    </model>
   </world>
 </sdf>
