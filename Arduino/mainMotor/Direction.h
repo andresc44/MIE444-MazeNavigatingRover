@@ -1,5 +1,4 @@
 //direction the robot will go in relative to car body
-#include <ros.h>
 #include <std_msgs/Int8MultiArray.h> // pwm data is sent as 8 bit array
 
 //Creating a Callback Function for Subscriber
@@ -9,38 +8,8 @@
 //uint8_t pwm_array[3] = {0, 0, 0}; //initialize pwm array
 //bool dir_CW_array[3] = {HIGH, HIGH, HIGH}; //initialize direction array
 
-ros::Subscriber<std_msgs::Int8MultiArray> sub("wheelsPWM", &messageCb );
 
-void DC_Motor_Setup() {
-  nh.subscribe(sub); //subscribe node nh to topic wheelsPWM
-  pinMode(EN1, OUTPUT);
-  pinMode(EN2, OUTPUT);
-  pinMode(EN3, OUTPUT);
-  
-  //setting up L298N Pins, there are 3 Motor controllers in total
-  // Each MC needs In1 and In2, thats what DIR1A and DIR1B represent
-  pinMode(DIR1A, OUTPUT);
-  pinMode(DIR1B, OUTPUT);
-  pinMode(DIR2A, OUTPUT);
-  pinMode(DIR2B, OUTPUT);
-  pinMode(DIR3A, OUTPUT);
-  pinMode(DIR3B, OUTPUT);
-  pinMode(ENCODER1A, OUTPUT);
-  pinMode(ENCODER1B, OUTPUT);
-  pinMode(ENCODER2A, OUTPUT);
-  pinMode(ENCODER2B, OUTPUT);
-  pinMode(ENCODER3A, OUTPUT);
-  pinMode(ENCODER3B, OUTPUT);
-  
-  //Setting In1 and In2 on L298N to OFF so that no motors turn on
-  digitalWrite(DIR1A, LOW);
-  digitalWrite(DIR1B, LOW);
-  digitalWrite(DIR2A, LOW);
-  digitalWrite(DIR2B, LOW);
-  digitalWrite(DIR3A, LOW);
-  digitalWrite(DIR3B, LOW);
-  Serial.println(F("Motors Ready"));
-}
+
 
 
 // Control feedback code
@@ -67,11 +36,61 @@ void messageCb(const std_msgs::Int8MultiArray& pwm_msg) {
   digitalWrite(DIR1B, !pwm_msg.data[0]);
   digitalWrite(DIR2A, pwm_msg.data[2]);
   digitalWrite(DIR2B, !pwm_msg.data[2]);
-  digitalWrite(DIR3A, pwm_msg.data[3]);
-  digitalWrite(DIR3B, !pwm_msg.data[3]);
+  digitalWrite(DIR3A, pwm_msg.data[4]);
+  digitalWrite(DIR3B, !pwm_msg.data[4]);
 
   analogWrite(EN1, pwm_msg.data[1]);
-  analogWrite(EN2, pwm_msg.data[2]);
-  analogWrite(EN3, pwm_msg.data[3]);
+  analogWrite(EN2, pwm_msg.data[3]);
+  analogWrite(EN3, pwm_msg.data[5]);
   //Adjust_PWM(pwm_msg); //Where Liam's code will go
 }
+
+void readEncoder1(){
+  
+}
+
+void readEncoder2(){
+  
+}
+
+void readEncoder3(){
+  
+}
+
+ros::Subscriber<std_msgs::Int8MultiArray> sub("wheelsPWM", &messageCb );
+
+void DC_Motor_Setup() {
+  nh.subscribe(sub); //subscribe node nh to topic wheelsPWM
+  pinMode(EN1, OUTPUT);
+  pinMode(EN2, OUTPUT);
+  pinMode(EN3, OUTPUT);
+  
+  //setting up L298N Pins, there are 3 Motor controllers in total
+  // Each MC needs In1 and In2, thats what DIR1A and DIR1B represent
+  pinMode(DIR1A, OUTPUT);
+  pinMode(DIR1B, OUTPUT);
+  pinMode(DIR2A, OUTPUT);
+  pinMode(DIR2B, OUTPUT);
+  pinMode(DIR3A, OUTPUT);
+  pinMode(DIR3B, OUTPUT);
+  pinMode(ENCODER1A, OUTPUT);
+  pinMode(ENCODER1B, OUTPUT);
+  pinMode(ENCODER2A, OUTPUT);
+  pinMode(ENCODER2B, OUTPUT);
+  pinMode(ENCODER3A, OUTPUT);
+  pinMode(ENCODER3B, OUTPUT);
+
+  attachInterrupt(digitalPinToInterrupt(ENCODER1A), readEncoder1, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ENCODER2A), readEncoder2, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ENCODER3A), readEncoder3, CHANGE);
+  
+  //Setting In1 and In2 on L298N to OFF so that no motors turn on
+  digitalWrite(DIR1A, LOW);
+  digitalWrite(DIR1B, LOW);
+  digitalWrite(DIR2A, LOW);
+  digitalWrite(DIR2B, LOW);
+  digitalWrite(DIR3A, LOW);
+  digitalWrite(DIR3B, LOW);
+  Serial.println(F("Motors Ready"));
+}
+  
