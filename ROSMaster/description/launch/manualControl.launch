@@ -1,9 +1,9 @@
 <launch>
     <node pkg="scripts" type="wheelController" name="wheelController" output="screen">
     </node>
-    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard">
-        <param name="speed" type="double" value="0.1245" />
-        <param name="turn" type="double" value="2.80" />
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
+        <param name="speed" type="double" value="0.2490" />
+        <param name="turn" type="double" value="2.4412" />
         <param name="key_timeout" type="double" value="0.4" />
     </node>
 </launch>

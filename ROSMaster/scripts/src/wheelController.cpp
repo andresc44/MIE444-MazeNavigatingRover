@@ -4,13 +4,16 @@
 #include <geometry_msgs/Twist.h>
 #include <std_msgs/Int16MultiArray.h>
 #include <cmath>
+#include <iostream>
+  #include <vector>
+  using namespace std;
 
 class DirectionCoversion {
     private:
         int block_state;
         bool in_loading_zone;
         
-        const float max_F_speed = 0.2490; //!!!!!!BASED ON EXPERIMENTAL DATA UNDER LOAD IN FORWARD DIRECTION!!!!!!!!!!!
+        const float max_F_speed = 0.2490; //!!!!!!BASED ON EXPERIMENTAL DATA UNDER LOAD IN FORWARD DIRECTION m/s !!!!!!!!!!!
         const int pwm_max = 255;
         const float wheel_radius = 0.029; //58mm diam in meters
         const float diam2centre = 0.102; //8cm in meters
@@ -24,23 +27,14 @@ class DirectionCoversion {
 
         //trans_matrix*cmd_vel ./ radius_wheel / max_rad/s
         const double conv_factor = pwm_max/(max_rps*wheel_radius);
+        //const double conv_factor = (30/3.1416)/wheel_radius; //rpm values
         const double transform_matrix [3][3] = {
                                     {-0.5*conv_factor, -0.866*conv_factor, -diam2centre*conv_factor}, 
                                     {-0.5*conv_factor, 0.866*conv_factor, -diam2centre*conv_factor},
                                     {1*conv_factor, 0, -diam2centre*conv_factor}
                                     }; //accounts for all unit conversions. When multiplied by cmd_vel, will be pwms
 
-        // std::vector<double> double transform_matrix = conv_factor*{
-        //                                                         {-0.5, -0.866, -diam2centre}, 
-        //                                                         {-0.5, 0.866, -diam2centre},
-        //                                                         {1, 0, -diam2centre}
-        //                                                     }; //accounts for all unit conversions. When multiplied by cmd_vel, will be pwms
-
-
-
-
-
-        std::vector<double> speeds = {0, 0, 0};
+        vector<double> speeds = {0, 0, 0};
 
         ros::Publisher pub; //create publisher object
         ros::Subscriber sub1; //subscriber object
@@ -77,7 +71,7 @@ class DirectionCoversion {
     
     void publishAll() {
         std_msgs::Int16MultiArray wheel_msg;
-        std::vector<int16_t> pwms;
+        vector<int16_t> pwms;
 
         if (in_loading_zone && block_state != 3) {
             if (block_state == 0) { //search for block, add code
@@ -93,14 +87,16 @@ class DirectionCoversion {
         else { //follow cmd_velocity logic
             //blah blah matrix multiplication
             pwms = {0, 0, 0};
-            for(uint8_t i=0; i<3;i++){
-                for(uint8_t j=0;j<3;j++){
-                    pwms[i]=pwms[i]+(speeds[i] * transform_matrix[i][j]);
+            for(int i=0; i<3;i++){
+                for(int j=0;j<3;j++){
+                    pwms[i]=pwms[i]+(speeds[j] * transform_matrix[i][j]);
                 }
             }
 
         }
-        wheel_msg.data = pwms;        
+        wheel_msg.data = pwms;  
+        //cout << pwms[0]<<" ";
+        //cout << pwms[1]<<" "<<pwms[2]<<"\n";     
         pub.publish(wheel_msg);
     }
 };
