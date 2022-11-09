@@ -9,18 +9,37 @@ class DirectionCoversion {
     private:
         int block_state;
         bool in_loading_zone;
-        const int max_vel = 6; //maximum velocity expected from cmd_vel as absolute magnitude
+        
+        const float max_F_speed = 0.2490; //!!!!!!BASED ON EXPERIMENTAL DATA UNDER LOAD IN FORWARD DIRECTION!!!!!!!!!!!
         const int pwm_max = 255;
-        const float wheel_radius = 0.0058/2; //58mm in meters
-        const float diam2centre = 0.08; //8cm in meters
-        const int max_rpm = 82; //from experimental data, mutl by 2pi/60 for rad/s
+        const float wheel_radius = 0.029; //58mm diam in meters
+        const float diam2centre = 0.102; //8cm in meters
+        //const float exp_max_rpm = max_F_speed/wheel_radius*60/(2*pi); //conversion for forward speed to max wheel rpm
+        //const int max_rpm = 82; //from experimental data, mutl by 2pi/60 for rad/s
+        const float max_rps = max_F_speed/wheel_radius; //max rad/s of motor
+
+
+        //max_lin_vel = max_rps*wheel_radius 0.2490m/s
+        //max_rot_vel = max_lin_vel/diam2centre 2.4412rad/s
+
         //trans_matrix*cmd_vel ./ radius_wheel / max_rad/s
-        const double conv_factor = 30*pwm_max/(3.1416*wheel_radius*max_rpm);
+        const double conv_factor = pwm_max/(max_rps*wheel_radius);
         const double transform_matrix [3][3] = {
                                     {-0.5*conv_factor, -0.866*conv_factor, -diam2centre*conv_factor}, 
                                     {-0.5*conv_factor, 0.866*conv_factor, -diam2centre*conv_factor},
                                     {1*conv_factor, 0, -diam2centre*conv_factor}
                                     }; //accounts for all unit conversions. When multiplied by cmd_vel, will be pwms
+
+        // std::vector<double> double transform_matrix = conv_factor*{
+        //                                                         {-0.5, -0.866, -diam2centre}, 
+        //                                                         {-0.5, 0.866, -diam2centre},
+        //                                                         {1, 0, -diam2centre}
+        //                                                     }; //accounts for all unit conversions. When multiplied by cmd_vel, will be pwms
+
+
+
+
+
         std::vector<double> speeds = {0, 0, 0};
 
         ros::Publisher pub; //create publisher object
