@@ -26,8 +26,8 @@ class DirectionCoversion {
         //max_rot_vel = max_lin_vel/diam2centre 2.4412rad/s
 
         //trans_matrix*cmd_vel ./ radius_wheel / max_rad/s
-        const double conv_factor = pwm_max/(max_rps*wheel_radius);
-        //const double conv_factor = (30/3.1416)/wheel_radius; //rpm values
+        //const double conv_factor = pwm_max/(max_rps*wheel_radius);
+        const double conv_factor = (30/3.1416)/wheel_radius; //rpm values
         const double transform_matrix [3][3] = {
                                     {-0.5*conv_factor, -0.866*conv_factor, -diam2centre*conv_factor}, 
                                     {-0.5*conv_factor, 0.866*conv_factor, -diam2centre*conv_factor},
@@ -71,30 +71,32 @@ class DirectionCoversion {
     
     void publishAll() {
         std_msgs::Int16MultiArray wheel_msg;
-        vector<int16_t> pwms;
+        vector<int16_t> rpms;
+        vector<int16_t> abs_rpms;
 
         if (in_loading_zone && block_state != 3) {
             if (block_state == 0) { //search for block, add code
-                pwms = {100, 100, 100}; //rotate rover counter clockwise
+                rpms = {100, 100, 100}; //rotate rover counter clockwise
             }
             else if (block_state == 1) { //alligned with block, move forward
-                pwms = {-100, 100, 0};
+                rpms = {-100, 100, 0};
             }
             else { //lined up, now stop, block_state == 2
-                pwms = {0, 0, 0};
+                rpms = {0, 0, 0};
             }
         }
         else { //follow cmd_velocity logic
             //blah blah matrix multiplication
-            pwms = {0, 0, 0};
+            rpms = {0, 0, 0};
             for(int i=0; i<3;i++){
                 for(int j=0;j<3;j++){
-                    pwms[i]=pwms[i]+(speeds[j] * transform_matrix[i][j]);
+                    rpms[i]=rpms[i]+(speeds[j] * transform_matrix[i][j]);
                 }
             }
 
         }
-        wheel_msg.data = pwms;  
+        abs_rpms = {rpms[0]>=0, abs(rpms[0]), rpms[1]>= 0, abs(rpms[1]), rpms[2]>=0, abs(rpms[2])};
+        wheel_msg.data = abs_rpms;  
         //cout << pwms[0]<<" ";
         //cout << pwms[1]<<" "<<pwms[2]<<"\n";     
         pub.publish(wheel_msg);
