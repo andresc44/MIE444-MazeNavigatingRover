@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="scripts" type="wheelController" name="wheelController" output="screen">
+    </node>
+    <node pkg="scripts" type="laser_avoider_node.py" name="laser_avoider_node" output="screen">
+    </node>
+    
+</launch>

@@ -37,7 +37,7 @@ class Avoider():
 		self.TRANS_LIN_VEL  = trans_lin_vel
 		self.TRANS_ANG_VEL  = trans_ang_vel
 
-	def indentify_regions(self, scan):
+	def identify_regions(self, scan):
 		'''
 		:param scan: Scan object that contains the lidar data 
 		'''
