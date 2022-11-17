@@ -1,29 +1,42 @@
+<!-- Ros launch allows you to launch multiple nodes without having to do it individually in terminal -->
 <launch>
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find worlds)/gazebo_worlds/MazeWorld.world"/>
     <!-- more default parameters can be changed here -->
   </include>
-  <node
-    name="tf_footprint_base"
-    pkg="tf"
-    type="static_transform_publisher"
-    args="0 0 0 0 0 0 base_link base_footprint 40" />
-  <node
-    name="spawn_model"
-    pkg="gazebo_ros"
-    type="spawn_model"
-    args="-file $(find worlds)/models/robot/urdf/rover.urdf -urdf -model rover
-          -x 0.4572 -y 0.4572 -z 0
-          -R 0 -P 0 -Y -1.5707"
-    output="screen" />
+  
+
+ <!-- Robot description from URDF -->
+ <!-- find folder name then add path -->
+ <!-- cat $(find MIE444_ws)/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/urdf/rover.urdf"/> -->
+  <param name="robot_description" command="cat $(find worlds)/models/robot/urdf/rover.urdf"/>
+  <!-- Combine Joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+
   <node
     name="fake_joint_calibration"
     pkg="rostopic"
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
+
+<!-- Send Joint value -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
       <param name="rate" value="50"/>
+
   </node>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+
+ 
+ <!-- Gazebo Simulator -->
+ <!-- For some reason under args: I change the last word ie the model name from "rover" to "dab" it won't load, since there already exists a model named rover-->
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find worlds)/models/robot/urdf/rover.urdf -urdf -model dab
+          -x 0.4572 -y 0.4572 -z 0
+          -R 0 -P 0 -Y -1.5707"
+    output="screen" />
 </launch>
