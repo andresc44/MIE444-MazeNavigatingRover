@@ -1,0 +1,11 @@
+<launch>
+    <param name='robot_description' value="$(command 'cat $(find-pkg-share worlds)/models/robot/urdf/rover.urdf')"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+        <param name='use_gui' value="false"/>
+    </node> 
+  
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+    
+    </node>
+</launch>
