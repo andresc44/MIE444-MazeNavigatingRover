@@ -11,6 +11,10 @@
   
   <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
     
+    <param name="laser_min_dist" value="0.07" />
+    <param name="laser_max_dist" value="2.5" />
+
+
     <!-- Frame names -->
     <param name="map_frame" value="map" />
     <param name="base_frame" value="$(arg base_frame)" />

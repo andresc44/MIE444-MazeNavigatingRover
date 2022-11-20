@@ -506,7 +506,7 @@
                   <!-- it is scanning horizontally with 360 samples -->
                   <!-- scan spans +pi and -pi ie 360 degrees -->
                   <horizontal>
-                      <samples>720</samples>
+                      <samples>360</samples>
                       
                       <min_angle>-3.14</min_angle>
                       <max_angle>3.14</max_angle>
@@ -514,7 +514,7 @@
               </scan>
               <range>
                   <!-- minimum range set to 0.3m =300mm -->
-                  <min>0.03</min> 
+                  <min>0.3</min> 
                   <!-- maxmium range set to 12meters -->
                   <max>12</max>
               </range>
@@ -533,7 +533,7 @@
               </ros> -->
 
               <!-- <robotNamespace>robot1</robotNamespace> -->
-              <topicName>/scan</topicName>
+              <topicName>/scan2</topicName>
   
 
               <!-- RECALL THAT THIS IS THE OUTPUT TYPE OF THE LIDAR that is publishing -->
