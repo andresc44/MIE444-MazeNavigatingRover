@@ -506,7 +506,7 @@
                   <!-- it is scanning horizontally with 360 samples -->
                   <!-- scan spans +pi and -pi ie 360 degrees -->
                   <horizontal>
-                      <samples>360</samples>
+                      <samples>720</samples>
                       
                       <min_angle>-3.14</min_angle>
                       <max_angle>3.14</max_angle>
@@ -514,9 +514,9 @@
               </scan>
               <range>
                   <!-- minimum range set to 0.3m =300mm -->
-                  <min>0.3</min> 
+                  <min>0.03</min> 
                   <!-- maxmium range set to 12meters -->
-                  <max>12</max>
+                  <max>2.5</max>
               </range>
           </ray>
 
