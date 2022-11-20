@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+    <!-- type might be fixed or continuous-->
+    <joint name="laserjoint" type="fixed">
+        <<parent link="chassis"/>  <!--chassis may be wrong name, might be rover or base_link-->
+        <child link="laser_frame"/>
+
+        <<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> <!-- creating origin of lidar, tweak numbers-->
+    
+    <!-- Creating the physical lidar object, ignore that it's called laser frame -->
+    <<link name="laser_frame">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+            <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- creating a gazebo tag associated with the lidar object (also known as laser_frame), stupid name
+    this allows us to simualte the sensor data in gazebo
+     -->
+
+     <!-- gazebo tag reference that is associated with lidar link -->
+    <gazebo reference="laser_frame"> 
+
+        <material>Gazebo/Red</material>
+
+        <!-- ray sensor type means its a scanning lidar -->
+        <sensor name="laser" type="ray">
+            <pose> 0 0 0 0 0 0 </pose>
+            <!-- visualize means we can see it in gazebo -->
+            <visualize>true</visualize>
+            <!-- Update rate means it is updating sensor values 10 times per second, we can CHANGE this -->
+            <update_rate>10</update_rate>
+
+            <!-- Ray tag specifies the parameters for the ray sensor type that we chose above -->
+            <ray>
+                <scan>
+                    <!-- it is scanning horizontally with 360 samples -->
+                    <!-- scan spans +pi and -pi ie 360 degrees -->
+                    <horizontal>
+                        <samples>360</samples>
+                        
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <!-- minimum range set to 0.3m =300mm -->
+                    <min>0.3</min> 
+                    <!-- maxmium range set to 12meters -->
+                    <max>12</max>
+                </range>
+            </ray>
+
+            <!-- plugin tag -->
+            <!-- plugins are how we get gazebo to interact with things outside of gazebo -->
+            <!-- the plugin is called libgazebo ros ray sensor, takes a gazebo ray sensor and 
+            gets it to talk to ROS -->
+            <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <!-- CHANGE this is the topic that it will publish the lidar data to -->
+                    <argument>~/out:=scan</argument>
+                </ros>
+
+                <!-- RECALL THAT THIS IS THE OUTPUT TYPE OF THE LIDAR that is publishing -->
+                <output_type>sensor_msgs/LaserScan</output_type>
+                 
+                <!-- CHANGE THIS, FRAME NAME IS THE LIDAR LINK/PART NAME -->
+                <frame_name>laser_frame</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+         
+</robot>

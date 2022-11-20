@@ -10,16 +10,23 @@
  <!-- Robot description from URDF -->
  <!-- find folder name then add path -->
  <!-- cat $(find MIE444_ws)/src/MIE444-MazeNavigatingRover/ROSMaster/worlds/models/robot/urdf/rover.urdf"/> -->
+ <!-- LOAD THE URDF FILE INTO THE PARAMETER SERVER -->
   <param name="robot_description" command="cat $(find worlds)/models/robot/urdf/rover.urdf"/>
-  <!-- Combine Joint values -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+  <!-- CREATING A STATIC TRANSFORM PUBLISHER BETWEEN THE LIDAR LINK AND BASE LINK -->
+  <!-- name="base_link"> xyz="0 0 0" -->
+  <!-- name="lidar_joint" type="continuous"> xyz="0.00674979600000013 -0.036576 0.238388" -->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_lidar_tf" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link lidar_link 100" />
 
 
-  <node
-    name="fake_joint_calibration"
-    pkg="rostopic"
-    type="rostopic"
-    args="pub /calibrated std_msgs/Bool true" />
+  <!-- LAUNCH ROBOT STATE PUBLISHER -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+        <remap from="robot_description" to="my_robot_description" />
+        <remap from="joint_states" to="different_joint_states" />
+  </node>
+
+  <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" />
 
 <!-- Send Joint value -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -35,7 +42,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find worlds)/models/robot/urdf/rover.urdf -urdf -model dab
+    args="-file $(find worlds)/models/robot/urdf/rover.urdf -urdf -model dab1
           -x 0.4572 -y 0.4572 -z 0
           -R 0 -P 0 -Y -1.5707"
     output="screen" />
