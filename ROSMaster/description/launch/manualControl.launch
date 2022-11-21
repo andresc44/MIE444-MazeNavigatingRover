@@ -4,6 +4,6 @@
     <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
         <param name="speed" type="double" value="0.2490" />
         <param name="turn" type="double" value="2.4412" />
-        <param name="key_timeout" type="double" value="0.4" />
+        <param name="key_timeout" type="double" value="0.5" />
     </node>
 </launch>

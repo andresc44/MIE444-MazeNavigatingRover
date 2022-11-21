@@ -4,8 +4,7 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="rover">
-  <link
-    name="base_link">
+  <link name="base_link">
     <inertial>
       <origin
         xyz="6.6088E-18 1.9889E-17 0.064591"
@@ -44,6 +43,9 @@
       </geometry>
     </collision>
   </link>
+
+  
+
   <link
     name="wheel1_link">
     <inertial>
@@ -84,9 +86,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="wheel1_joint"
-    type="continuous">
+  <joint name="wheel1_joint" type="continuous">
     <origin
       xyz="0.045784 0.079299 0"
       rpy="0 0 2.618" />
@@ -100,6 +100,7 @@
       effort="1000"
       velocity="8.59" />
   </joint>
+
   <link
     name="wheel2_link">
     <inertial>
@@ -424,8 +425,9 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  <link
-    name="lidar_link">
+
+
+  <link name="lidar_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -464,9 +466,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="lidar_joint"
-    type="continuous">
+
+  <joint name="lidar_joint" type="continuous">
     <origin
       xyz="0.00674979600000013 -0.036576 0.238388"
       rpy="0 0 0" />
@@ -480,4 +481,93 @@
       effort="1000"
       velocity="42" />
   </joint>
+
+  <!-- creating a gazebo tag associated with the lidar object (also known as laser_frame), stupid name
+    this allows us to simualte the sensor data in gazebo
+     -->
+
+     <!-- gazebo tag reference that is associated with lidar link -->
+  <gazebo reference="lidar_link"> 
+
+      <material>Gazebo/Red</material>
+
+      <!-- ray sensor type means its a scanning lidar -->
+      <sensor name="laser" type="ray">
+          <always_on>true</always_on>
+          <pose> 0 0 0 0 0 0 </pose>
+          <!-- visualize means we can see the rays in gazebo -->
+          <visualize>true</visualize>
+          <!-- Update rate means it is updating sensor values 10 times per second, we can CHANGE this -->
+          <update_rate>10</update_rate>
+
+          <!-- Ray tag specifies the parameters for the ray sensor type that we chose above -->
+          <ray>
+              <scan>
+                  <!-- it is scanning horizontally with 360 samples -->
+                  <!-- scan spans +pi and -pi ie 360 degrees -->
+                  <horizontal>
+                      <samples>720</samples>
+                      
+                      <min_angle>-3.14</min_angle>
+                      <max_angle>3.14</max_angle>
+                  </horizontal>
+              </scan>
+              <range>
+                  <!-- minimum range set to 0.3m =300mm -->
+                  <min>0.03</min> 
+                  <!-- maxmium range set to 12meters -->
+                  <max>2.5</max>
+              </range>
+          </ray>
+
+          <!-- plugin tag -->
+          <!-- plugins are how we get gazebo to interact with things outside of gazebo -->
+          <!-- the plugin is called libgazebo ros ray sensor, takes a gazebo ray sensor and 
+          gets it to talk to ROS -->
+          <!-- <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so"> -->
+          <plugin name="laser_controller" filename="libgazebo_ros_laser.so">
+              <!-- CHANGE this is the topic that it will publish the lidar data to -->
+              
+              <!-- <ros>
+                  <argument>~/out:=scan</argument> 
+              </ros> -->
+
+              <!-- <robotNamespace>robot1</robotNamespace> -->
+              <topicName>/scan2</topicName>
+  
+
+              <!-- RECALL THAT THIS IS THE OUTPUT TYPE OF THE LIDAR that is publishing -->
+              <output_type>sensor_msgs/LaserScan</output_type>
+              
+              <!-- CHANGE THIS, FRAME NAME IS THE LIDAR LINK/PART NAME -->
+              <frame_name>lidar_link</frame_name>
+          </plugin>
+      </sensor>
+  </gazebo>
+
+<!-- new planar move plugin -->
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+
+<!--Joint state publishing plugin  -->
+  <gazebo>
+    <plugin name="gazebo_ros_joint_state_publisher"
+              filename="libgazebo_ros_joint_state_publisher.so">
+        <update_rate>20</update_rate>
+        <joint_name>lidar_joint</joint_name>
+        <joint_name>wheel1_joint</joint_name>
+        <joint_name>wheel2_joint</joint_name>
+        <joint_name>wheel3_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+
 </robot>
