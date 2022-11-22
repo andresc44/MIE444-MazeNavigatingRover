@@ -514,7 +514,7 @@
               </scan>
               <range>
                   <!-- minimum range set to 0.3m =300mm -->
-                  <min>0.03</min> 
+                  <min>0.04</min> 
                   <!-- maxmium range set to 12meters -->
                   <max>2.5</max>
               </range>
@@ -533,14 +533,14 @@
               </ros> -->
 
               <!-- <robotNamespace>robot1</robotNamespace> -->
-              <topicName>/scan2</topicName>
+              <topicName>/scan</topicName>
   
 
               <!-- RECALL THAT THIS IS THE OUTPUT TYPE OF THE LIDAR that is publishing -->
               <output_type>sensor_msgs/LaserScan</output_type>
               
               <!-- CHANGE THIS, FRAME NAME IS THE LIDAR LINK/PART NAME -->
-              <frame_name>lidar_link</frame_name>
+              <frame_name>laser</frame_name>
           </plugin>
       </sensor>
   </gazebo>
@@ -558,7 +558,7 @@
 
 
 <!--Joint state publishing plugin  -->
-  <gazebo>
+  <!-- <gazebo>
     <plugin name="gazebo_ros_joint_state_publisher"
               filename="libgazebo_ros_joint_state_publisher.so">
         <update_rate>20</update_rate>
@@ -567,7 +567,7 @@
         <joint_name>wheel2_joint</joint_name>
         <joint_name>wheel3_joint</joint_name>
     </plugin>
-  </gazebo>
+  </gazebo> -->
 
 
 </robot>

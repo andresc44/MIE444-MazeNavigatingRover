@@ -4,7 +4,9 @@
  <!-- Run the map server --> 
     <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find description)/map/my_map.pgm my_map_resolution"/> -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(find description)/map/simulation_map.yaml"/>
-
+    <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link laser 100" />
+    <node pkg="scripts" type="wheelController" name="wheelController" output="screen">
+    </node>
  <!--- Run AMCL --> 
     <include file="$(find description)/launch/amcl.launch" />
 

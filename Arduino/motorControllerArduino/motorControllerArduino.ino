@@ -1,24 +1,9 @@
 #include <ros.h>
 #include "Pinout.h" // liam will modify pinout header to reflect electrnoics
-
-#include <std_msgs/Empty.h>
-#include <SoftwareSerial.h>
 #include <std_msgs/Int16MultiArray.h> // pwm data is sent as 16 bit array
 
-#define rxPin 12
-#define txPin 13
-SoftwareSerial mySerial =  SoftwareSerial(rxPin, txPin);
 ros::NodeHandle nh;
 
-
-//void messageCb( const std_msgs::Empty& toggle_msg){
-////  digitalWrite(LED_BUILTIN, HIGH-digitalRead(LED_BUILTIN));   // blink the led
-//  digitalWrite(A0, HIGH-digitalRead(A0));
-//  digitalWrite(A1, HIGH-digitalRead(A1));
-//  mySerial.println("In messageCb");
-//  mySerial.println(HIGH-digitalRead(A0));
-//  mySerial.println(HIGH-digitalRead(A1));
-//} 
 
 void messageCb(const std_msgs::Int16MultiArray& pwm_msg) {
 //  mySerial.println("inside correct callback");
@@ -35,9 +20,7 @@ void messageCb(const std_msgs::Int16MultiArray& pwm_msg) {
   analogWrite(EN3, pwm_msg.data[5]);
 }
 
-//ros::Subscriber<std_msgs::Empty> sub("toggle_led", &messageCb );
 ros::Subscriber<std_msgs::Int16MultiArray> sub("wheelsPWM", &messageCb );
-//ros::Subscriber<std_msgs::Int16> sub("onewheel", &messageCb );
 
 void setup()
 {
@@ -56,12 +39,7 @@ void setup()
   pinMode(DIR2A, OUTPUT);
   pinMode(DIR2B, OUTPUT);
   pinMode(DIR3A, OUTPUT);
-  pinMode(DIR3B, OUTPUT);
-  
-  mySerial.begin(9600);
-  mySerial.println("Software Serial Started");
-  
-  
+  pinMode(DIR3B, OUTPUT);  
 }
 
 void loop()
