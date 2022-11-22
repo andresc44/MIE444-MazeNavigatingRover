@@ -533,14 +533,14 @@
               </ros> -->
 
               <!-- <robotNamespace>robot1</robotNamespace> -->
-              <topicName>/scan</topicName>
+              <topicName>scan</topicName>
   
 
               <!-- RECALL THAT THIS IS THE OUTPUT TYPE OF THE LIDAR that is publishing -->
               <output_type>sensor_msgs/LaserScan</output_type>
               
               <!-- CHANGE THIS, FRAME NAME IS THE LIDAR LINK/PART NAME -->
-              <frame_name>laser</frame_name>
+              <frame_name>world</frame_name>
           </plugin>
       </sensor>
   </gazebo>
