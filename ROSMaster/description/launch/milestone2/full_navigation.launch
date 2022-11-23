@@ -34,5 +34,8 @@
    </node>
    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find description)/config/rviz_topdown.rviz" />
 
+   <!-- launch navigation stack node -->
+   <!-- NOT SURE IF THIS LINE IS CORRECT, LET ME KNOW ANDRES -->
+   <node name="nav_stack" pkg="scripts" type="simple_navigation_goals" args="$(find scripts)/src/simple_navigation_goals.cpp" />
 
 </launch> 
