@@ -12,6 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   std_srvs
+  actionlib
+  move_base_msgs
+
 )
 
 ## System dependencies are found with CMake's conventions
@@ -211,3 +214,6 @@ target_link_libraries(template ${catkin_LIBRARIES})
 add_executable(wheelController src/wheelController.cpp)
 target_link_libraries(wheelController ${catkin_LIBRARIES})
 #add_dependencies(talker beginner_tutorials_generate_messages_cpp)
+
+add_executable(simple_navigation_goals src/simple_navigation_goals.cpp)
+target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES})
