@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_srvs
   actionlib
   move_base_msgs
+  geometry_msgs
 
 )
 
@@ -217,3 +218,6 @@ target_link_libraries(wheelController ${catkin_LIBRARIES})
 
 add_executable(simple_navigation_goals src/simple_navigation_goals.cpp)
 target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES})
+
+add_executable(getBlock src/getBlock.cpp)
+target_link_libraries(getBlock ${catkin_LIBRARIES})
