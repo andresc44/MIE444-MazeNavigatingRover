@@ -79,10 +79,10 @@ class ClassName {
 
 int main (int argc, char **argv)
 {
-    int sleep_rate;
+    int sleep_rate = 10; //10 Hz
     ros::init(argc, argv, "nodeName"); //Name of the node
     ros::NodeHandle nh;
-    ros::param::get("/my_param_name", sleep_rate);
+    // ros::param::get("/my_param_name", sleep_rate);
 
     ros::Rate r(sleep_rate); // Hz
     ClassName cn = ClassName(&nh);

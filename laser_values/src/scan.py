@@ -4,7 +4,8 @@ import rospy
 from sensor_msgs.msg import LaserScan
 
 def callback(msg):
-    print (msg.ranges[700])
+    print (msg.ranges[719])
+    # print(len(msg.ranges))
 
 rospy.init_node('scan_values') 
 sub = rospy.Subscriber('/scan', LaserScan, callback)

@@ -10,12 +10,14 @@
    <!-- Launch the world -->
    <include file="$(find worlds)/launch/MazeWorld.launch" />
 
+	<include file="$(find description)/launch/laser_scan_matcher.launch"/>
  <!-- Run the map server --> 
     <node name="map_server" pkg="map_server" type="map_server" args="$(find description)/map/sim/mymap.yaml"/>
     
     <!-- Base to lidar transform -->
-    <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link world 500" />
-    <node pkg="tf" type="static_transform_publisher" name="base_to_lidar_broadcaster" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link lidar_link 500" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link world 500" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.0 0.0 0.238388 0 0 0 base_link world 500" />
+    <node pkg="tf" type="static_transform_publisher" name="base_to_lidar_broadcaster" args="0.0 0.0 0.238388 0 0 0 base_link lidar_link 500" />
     <node pkg="tf" type="static_transform_publisher" name="base_to_wheel1_broadcaster" args="0.045784 0.079299 0 2.618 0 0 base_link wheel1_link 500" />
     <node pkg="tf" type="static_transform_publisher" name="base_to_wheel2_broadcaster" args="0.0457835000000003 -0.0792993481483295 0 0.523598775598303 0 0 base_link wheel2_link 500" />
     <node pkg="tf" type="static_transform_publisher" name="base_to_wheel3_broadcaster" args="-0.111567 0 0 1.5708 0 0 base_link wheel3_link 500" />

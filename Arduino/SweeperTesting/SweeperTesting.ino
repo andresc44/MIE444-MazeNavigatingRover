@@ -2,8 +2,7 @@
 #include <Servo.h>
 #include "RunningAverage.h"
 
-const uint16_t THRESHOLD = 110;
-long time_ref;
+const uint16_t THRESHOLD = 100;
 int16_t servo_angle = 180;
 
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
@@ -41,6 +40,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   
   uint16_t distance = measure.RangeMilliMeter;
+  Serial.println(distance);
   myRA.addValue(distance);
 
   if (myRA.getAverage() < THRESHOLD){

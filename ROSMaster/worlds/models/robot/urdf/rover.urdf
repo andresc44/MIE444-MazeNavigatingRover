@@ -254,8 +254,11 @@
   </link>
 
   <joint name="lidar_joint" type="continuous">
-    <origin
+    <!-- <origin
       xyz="0.00674979600000013 -0.036576 0.238388"
+      rpy="0 0 0" /> -->
+    <origin
+      xyz="0.0 0.0 0.238388"
       rpy="0 0 0" />
     <parent
       link="base_link" />
@@ -294,13 +297,15 @@
                   <horizontal>
                       <samples>720</samples>
                       
-                      <min_angle>-3.14</min_angle>
-                      <max_angle>3.14</max_angle>
+                      <!-- <min_angle>-3.14</min_angle>
+                      <max_angle>3.14</max_angle> -->
+                      <min_angle>0</min_angle>
+                      <max_angle>6.28</max_angle>
                   </horizontal>
               </scan>
               <range>
                   <!-- minimum range set to 0.3m =300mm -->
-                  <min>0.04</min> 
+                  <min>0.05</min> 
                   <!-- maxmium range set to 12meters -->
                   <max>2.5</max>
               </range>
@@ -321,12 +326,13 @@
               <!-- <robotNamespace>robot1</robotNamespace> -->
               <topicName>scan</topicName>
   
+              <!-- CHANGE THIS, FRAME NAME IS THE LIDAR LINK/PART NAME -->
+              <frame_name>laser</frame_name>
 
               <!-- RECALL THAT THIS IS THE OUTPUT TYPE OF THE LIDAR that is publishing -->
               <output_type>sensor_msgs/LaserScan</output_type>
               
-              <!-- CHANGE THIS, FRAME NAME IS THE LIDAR LINK/PART NAME -->
-              <frame_name>world</frame_name>
+              
           </plugin>
       </sensor>
   </gazebo>
@@ -335,12 +341,12 @@
   <gazebo>
     <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>fake_gazebo_odom</odometryTopic>
+      <odometryFrame>fake_gazebo_odom</odometryFrame>
       <odometryRate>20.0</odometryRate>
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
-  </gazebo>
+  </gazebo> 
 
 
 <!--Joint state publishing plugin  -->

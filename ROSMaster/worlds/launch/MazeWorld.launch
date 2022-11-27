@@ -25,7 +25,7 @@
     pkg="gazebo_ros"
     type="spawn_model"
     args="-file $(find worlds)/models/robot/urdf/rover.urdf -urdf -model rover
-          -x 1.0692 -y -0.4596 -z 0
+          -x 1.0692 -y 0.4596 -z 0
           -R 0 -P 0 -Y 1.5707"
     output="screen" />
     <!-- Starting at 15cm from each edge, 1.647 rad -->
