@@ -29,9 +29,9 @@ class Avoider():
 	                     "left_C":  3, "left_L": 4, "back_R": 5,
 	                 	}
 
-	def __init__(self, vel_obj, obstacle_threshold=0.2, 
-				       regional_angle=30, normal_lin_vel=0.1, #0.48 is max, 0.2145 should be 100 PWM
-				       trans_lin_vel=0.0, trans_ang_vel=1.5): #1.47 rad/s should be 80PWM
+	def __init__(self, vel_obj, obstacle_threshold=0.254, 
+				       regional_angle=30, normal_lin_vel=0.2145, #0.48 is max, 0.2145 should be 100 PWM
+				       trans_lin_vel=0.0, trans_ang_vel=1.47): #1.47 rad/s should be 80PWM
 		'''
 		:param vel_obj           : Velocity object; will contain velocity commands(data); Twist()
 		:param obstacle_threshold: Objects a this distance or below are considered obstacles
