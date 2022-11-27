@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="geotiff_map_file_path" default="$(find hector_geotiff)/maps"/>
+    <param name="/use_sim_time" value="false"/>
+      
+    <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link laser 100" />
+  
+    
+    <node pkg="scripts" type="wheelController" name="wheelController" output="screen">
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find hector_slam_launch)/rviz_cfg/mapping_demo.rviz"/>
+
+    <include file="$(find description)/launch/milestone2/hector/hector_config.launch"/>
+
+    <include file="$(find hector_geotiff_launch)/launch/geotiff_mapper.launch">
+        <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>
+        <arg name="map_file_path" value="$(arg geotiff_map_file_path)"/>
+    </include>
+
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
+      <param name="speed" type="double" value="0.2145" />
+      <param name="turn" type="double" value="1.457" />
+      <param name="key_timeout" type="double" value="0.5" />
+    </node>
+
+</launch>
