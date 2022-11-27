@@ -1,0 +1,21 @@
+<launch>
+
+    <!-- publish servo state false and the mode to 2 -->
+
+    <node pkg="rostopic" type="rostopic" name="rostopic1" args="pub /operation_mode std_msgs/Int8 'data: 2'"/>
+    <node pkg="rostopic" type="rostopic" name="rostopic2" args="pub /servo std_msgs/Bool 'data: false'"/>
+
+    <node
+    pkg="scripts"
+    type="wheelController"
+    name="wheelController"
+    />
+
+    <node
+    pkg="scripts"
+    type="getBlock"
+    name="getBlock"
+    />
+
+
+</launch>
