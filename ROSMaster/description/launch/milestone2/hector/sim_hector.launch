@@ -23,8 +23,8 @@
     </include>
 
     <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
-      <param name="speed" type="double" value="0.15" />
-      <param name="turn" type="double" value="1.0" />
+      <param name="speed" type="double" value="0.2" />
+      <param name="turn" type="double" value="1" />
       <param name="key_timeout" type="double" value="0.5" />
     </node>
 

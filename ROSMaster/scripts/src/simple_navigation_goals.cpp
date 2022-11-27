@@ -21,7 +21,9 @@ int main(int argc, char** argv){
   move_base_msgs::MoveBaseGoal goal; //i'm going to guess that goal is just an xy position array
 
   //we'll send a goal to the robot to move 1 meter forward IN THE BASE LINK COORDINATE FRAME
-  goal.target_pose.header.frame_id = "base_link"; // SPECIFY COORDINATE FRAME TO MOVE RELATIVE TO
+
+  //ANDRES CHANGED fram to map
+  goal.target_pose.header.frame_id = "map"; // SPECIFY COORDINATE FRAME TO MOVE RELATIVE TO
   goal.target_pose.header.stamp = ros::Time::now();
 
   // FUTURE CODE: we will have 4 modes: approach loading zone, object search, object pickup, object drop off
@@ -35,8 +37,41 @@ int main(int argc, char** argv){
     // move until end zone and drop object off 
   
 
-  goal.target_pose.pose.position.x = 1.0; // setting distance you want to move
-  goal.target_pose.pose.orientation.w = 1.0; //setting distance you want to move
+  // // Dropoff Point 1
+  // goal.target_pose.pose.position.x = 0.185; // x coordinate
+  // goal.target_pose.pose.position.y = 1.526; // y coordinate
+  // goal.target_pose.pose.orientation.z = 0; // z rotation in quaternion
+  // goal.target_pose.pose.orientation.w = 1.0; // w rotation in quaternion
+
+  // // Dropoff Point 2
+  // goal.target_pose.pose.position.x = 0.795; // x coordinate
+  // goal.target_pose.pose.position.y = 0.612; // y coordinate
+  // goal.target_pose.pose.orientation.z = 0; // z rotation in quaternion
+  // goal.target_pose.pose.orientation.w = 1.0; // w rotation in quaternion
+
+  // Dropoff Point 3
+  goal.target_pose.pose.position.x = 0.795; // x coordinate
+  goal.target_pose.pose.position.y = 0.002; // y coordinate
+  goal.target_pose.pose.orientation.z = 0; // z rotation in quaternion
+  goal.target_pose.pose.orientation.w = 1.0; // w rotation in quaternion
+
+  // // Dropoff Point 4
+  // goal.target_pose.pose.position.x = 0.124; // x coordinate
+  // goal.target_pose.pose.position.y = 0.002; // y coordinate
+  // goal.target_pose.pose.orientation.z = 1.0; // z rotation in quaternion
+  // goal.target_pose.pose.orientation.w = 0; // w rotation in quaternion
+
+  // // Loading_Bottom
+  // goal.target_pose.pose.position.x = 0.460; // x coordinate
+  // goal.target_pose.pose.position.y = 2.136; // y coordinate
+  // goal.target_pose.pose.orientation.z = 0; // z rotation in quaternion
+  // goal.target_pose.pose.orientation.w = 1.0; // w rotation in quaternion
+
+  // // Loading_Top
+  // goal.target_pose.pose.position.x = 0.917; // x coordinate
+  // goal.target_pose.pose.position.y = 1.679; // y coordinate
+  // goal.target_pose.pose.orientation.z = 0.707; // z rotation in quaternion
+  // goal.target_pose.pose.orientation.w = 0.707; // w rotation in quaternion
 
   ROS_INFO("Sending goal");
   ac.sendGoal(goal); // THIS ACTUALLY PUSHES THE GOAL MESSAGE TO THE MOVE_BASE NODE FOR PROCESSING

@@ -27,8 +27,6 @@ void setup()
   nh.initNode();
   nh.subscribe(sub);
 //  nh.subscribe(sub2);
-  pinMode(rxPin, INPUT);
-  pinMode(txPin, OUTPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(EN1, OUTPUT);
   pinMode(EN2, OUTPUT);

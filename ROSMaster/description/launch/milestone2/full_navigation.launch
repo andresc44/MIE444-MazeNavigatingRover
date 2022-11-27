@@ -11,7 +11,7 @@
    <include file="$(find worlds)/launch/MazeWorld.launch" />
 
  <!-- Run the map server --> 
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find description)/map/sim/map.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find description)/map/sim/mymap.yaml"/>
     
     <!-- Base to lidar transform -->
     <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.00674979600000013 -0.036576 0.238388 0 0 0 base_link world 500" />
@@ -36,6 +36,6 @@
 
    <!-- launch navigation stack node -->
    <!-- NOT SURE IF THIS LINE IS CORRECT, LET ME KNOW ANDRES -->
-   <node name="nav_stack" pkg="scripts" type="simple_navigation_goals" args="$(find scripts)/src/simple_navigation_goals.cpp" />
+   <!-- <node name="nav_stack_goals" pkg="scripts" type="simple_navigation_goals" args="$(find scripts)/src/simple_navigation_goals.cpp" /> -->
 
 </launch> 
