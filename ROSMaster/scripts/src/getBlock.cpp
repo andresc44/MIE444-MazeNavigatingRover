@@ -62,7 +62,7 @@ class Searcher { //Classes convention are capitalized
             }
 
             else {//once we are close enough, actuate servo, what happens from 90-95
-                wheel_msg.linear.x = 0.2145; //need to make sure of slow approach speed, probably can't go that slow and straight. Maybe 0.2
+                wheel_msg.linear.x = 0.265; //need to make sure of slow approach speed, probably can't go that slow and straight. Maybe 0.2
                 wheel_msg.linear.y = 0.0;
                 wheel_msg.linear.z = 0.0;
 

@@ -4,9 +4,10 @@ import rospy
 from geometry_msgs.msg import Twist #ros msg that deals with moving the robot
 from sensor_msgs.msg import LaserScan #ros msg that gets the laser scans
 from std_msgs.msg import Int8
+import time
 
 startingMode = 0
-
+toggle = True
 class Avoider():
     ''' This class provides simple obstacle avoidance functionalities to a ROS robot '''
 
@@ -17,23 +18,17 @@ class Avoider():
                          "back_C" : [], "back_L" : [], "right_R": [],
                          "right_C": [], "right_L": [], "front_R": [],
                      }
-    # These are the costs to deviate from each region to the goal region (front_C)
-    # Regions_Distances = {
-    #                      "front_C":  0, "front_L":  1, "left_R" :  2,
-    #                      "left_C" :  3, "left_L" :  4, "back_R" :  5,
-    #                      "back_C" :  6, "back_L" : -5, "right_R": -4,
-    #                      "right_C": -3, "right_L": -2, "front_R": -1,
-    #                  	}
-    Regions_Distances = {
-                         "back_C":  6, "back_L":  -5, "right_R" :  -4,
-                         "right_C" : -3, "right_L" :  -2, "front_R" :  -1,
-                         "front_C" :  0, "front_L" : 1, "left_R": 2,
-                         "left_C":  3, "left_L": 4, "back_R": 5,
-                         }
 
-    def __init__(self, vel_obj, obstacle_threshold=0.254, 
-                       regional_angle=30, normal_lin_vel=0.2145, #0.48 is max, 0.2145 should be 100 PWM
-                       trans_lin_vel=0.0, trans_ang_vel=1.47): #1.47 rad/s should be 80PWM
+    Regions_Distances = {
+	                     "front_C":  0, "front_L":  1, "left_R" :  2,
+	                     "left_C" :  3, "left_L" :  4, "back_R" :  5,
+	                     "back_C" :  6, "back_L" : -5, "right_R": -4,
+	                     "right_C": -3, "right_L": -2, "front_R": -1,
+	                 	}
+
+    def __init__(self, vel_obj, obstacle_threshold=0.279, #0.254, 0.27 
+                       regional_angle=30, normal_lin_vel=0.26, #0.48 is max, 0.2145 should be 100 PWM
+                       trans_lin_vel=-0.04, trans_ang_vel=1.6): #1.47 rad/s should be 80PWM
         '''
         :param vel_obj           : Velocity object; will contain velocity commands(data); Twist()
         :param obstacle_threshold: Objects a this distance or below are considered obstacles
@@ -57,19 +52,19 @@ class Avoider():
 
         # This list keeps track of the order in which the regions' readings are obtained
         REGIONS = [
-                     "back_C", "back_L", "right_R" ,
-                     "right_C" , "right_L" , "front_R" ,
-                     "front_C" , "front_L" , "left_R",
-                     "left_C", "left_L", "back_R",
-                  ]
+		             "front_C", "front_L", "left_R" ,
+		             "left_C" , "left_L" , "back_R" ,
+		             "back_C" , "back_L" , "right_R",
+		             "right_C", "right_L", "front_R",
+				  ]
                   
 
         # The front central region necessitate getting the last and first 15 points of the ranges
         intermediary = scan.ranges[:int(self.REGIONAL_ANGLE/2)]\
-                     + scan.ranges[len(scan.ranges)-1*int(self.REGIONAL_ANGLE/2):] # 0-30, then 690-719
-                     #+ scan.ranges[(len(scan.ranges)-1)*int(self.REGIONAL_ANGLE/2):] # 0-30, then 690-719
-        self.Regions_Report["back_C"] = [x for x in intermediary if x <= self.OBSTACLE_DIST and x != 'inf']
-        
+					 + scan.ranges[len(scan.ranges)-1*int(self.REGIONAL_ANGLE/2):] # 0-30, then 690-719
+					 #+ scan.ranges[(len(scan.ranges)-1)*int(self.REGIONAL_ANGLE/2):] # 0-30, then 690-719
+        self.Regions_Report["front_C"] = [x for x in intermediary if x <= self.OBSTACLE_DIST and x != 'inf']
+		
         # Enumerate all regions but the first
         for i, region in enumerate(REGIONS[1:]):
             # Only objects at a distance less than or equal to the threshold are considered obstacles
@@ -85,11 +80,9 @@ class Avoider():
     def _clearance_test(self):
 
         goal = "front_C"
-        # goal = "front_C"
         closest = 10e6
         regional_dist = 0
         maxima = {"destination": "back_C", "distance": 10e-6}
-        # maxima = {"destination": "back_C", "distance": 10e-6}
         for region in self.Regions_Report.items():
             regional_dist = abs(self.Regions_Distances[region[0]]-self.Regions_Distances[goal])
             #if there're no obstacles in that region
@@ -125,7 +118,7 @@ class Avoider():
         self.vel_obj.linear.z  = 0
         self.vel_obj.angular.x = 0
         self.vel_obj.angular.y = 0
-        self.vel_obj.angular.z = ang_vel #add negative	
+        self.vel_obj.angular.z = -ang_vel #add negative	
         # self.vel_obj.angular.z = -ang_vel #add negative	
 
 def callback_mode(mode):
@@ -154,6 +147,10 @@ def main():
 
     while not rospy.is_shutdown():
         if ((startingMode == 1) or (startingMode == 3)):
+            if (startingMode == 3):
+                time.sleep(1)
+                toggle = False
+
             vel = avoider.avoid()
             pub.publish(vel)
         rate.sleep()

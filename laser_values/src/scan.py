@@ -12,7 +12,7 @@ def callback(msg):
     print (msg.ranges[360])
     print('\t Right: ')
     print (msg.ranges[540])
-    # print(len(msg.ranges))
+    print(len(msg.ranges))
 
 rospy.init_node('scan_values') 
 sub = rospy.Subscriber('/scan', LaserScan, callback)

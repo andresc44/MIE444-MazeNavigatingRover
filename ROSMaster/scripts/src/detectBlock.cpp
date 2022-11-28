@@ -45,7 +45,7 @@ class BlockTracker {
     void publishAll() {
 
         std_msgs::Int8 mode;
-        if ((tof_dist + 200 < lidar_dist) && (tof_dist < 400) && (startingMode == 1)) {
+        if ((tof_dist + 200 < lidar_dist) && (tof_dist < 200) && (tof_dist > 60) && (startingMode == 1) && (lidar_dist < 800) && (lidar_dist > 5)) {
             mode.data = 2;
             pub1.publish(mode);
         }
