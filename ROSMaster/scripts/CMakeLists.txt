@@ -221,3 +221,14 @@ target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES})
 
 add_executable(getBlock src/getBlock.cpp)
 target_link_libraries(getBlock ${catkin_LIBRARIES})
+
+
+add_executable(detectCrossRoads src/detectCrossRoads.cpp)
+target_link_libraries(detectCrossRoads ${catkin_LIBRARIES})
+
+add_executable(detectBlock src/detectBlock.cpp)
+target_link_libraries(detectBlock  ${catkin_LIBRARIES})
+
+#mode1 is a py file
+#add_executable(mode1_nav src/mode1_nav.py)
+#target_link_libraries(mode1_nav  ${catkin_LIBRARIES})
