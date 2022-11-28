@@ -35,7 +35,7 @@ class BlockTracker {
 
     void callback_laser(const sensor_msgs::LaserScan& msg) {
         //code to process or clean data before passing to foo
-        lidar_dist = 1000*msg.range[0]; //units in mm
+        lidar_dist = 1000*msg.ranges[0]; //units in mm
     }
 
     void callback_mode(const std_msgs::Int8& msg) {

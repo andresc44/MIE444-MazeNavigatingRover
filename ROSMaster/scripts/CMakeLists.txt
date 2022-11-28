@@ -15,6 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   move_base_msgs
   geometry_msgs
+  sensor_msgs
+
 
 )
 
@@ -169,6 +171,10 @@ include_directories(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
+# catkin_install_python(PROGRAMS scripts/mode1_nav.py
+#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
+
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 # install(TARGETS ${PROJECT_NAME}_node
@@ -230,5 +236,6 @@ add_executable(detectBlock src/detectBlock.cpp)
 target_link_libraries(detectBlock  ${catkin_LIBRARIES})
 
 #mode1 is a py file
-#add_executable(mode1_nav src/mode1_nav.py)
-#target_link_libraries(mode1_nav  ${catkin_LIBRARIES})
+# add_executable(mode1_nav src/mode1_nav.py)
+# target_link_libraries(mode1_nav  ${catkin_LIBRARIES})
+
