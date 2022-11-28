@@ -39,24 +39,14 @@ class Searcher { //Classes convention are capitalized
     }
     
     void publishAll() {
-
-        std_msgs::Int8 operationMode; //I think we need to declare variables within publish FN to be able to publish them
-        std_msgs::Bool servoState;
-        geometry_msgs::Twist wheel_msg; 
-
+        cout << "checking\n";
         if(opMode == 2){
+            std_msgs::Int8 operationMode; //I think we need to declare variables within publish FN to be able to publish them
+            std_msgs::Bool servoState;
+            geometry_msgs::Twist wheel_msg; 
+            cout << "mode 2";
 
-            if(tofFrontDistance > 95){ //once we are close enough, actuate servo, what happens from 90-95
-                wheel_msg.linear.x = 0.2; //need to make sure of slow approach speed, probably can't go that slow and straight. Maybe 0.2
-                wheel_msg.linear.y = 0.0;
-                wheel_msg.linear.z = 0.0;
-
-                wheel_msg.angular.x = 0.0;
-                wheel_msg.angular.y = 0.0;
-                wheel_msg.angular.z = 0.0;
-            }
-            
-            else if (tofFrontDistance <= 95) { //once block is onboard, change rover state, change to =<95?
+            if (tofFrontDistance <= 95) { //once block is onboard, change rover state, change to =<95?
                 wheel_msg.linear.x = 0.0;
                 wheel_msg.linear.y = 0.0;
                 wheel_msg.linear.z = 0.0;
@@ -66,11 +56,24 @@ class Searcher { //Classes convention are capitalized
                 wheel_msg.angular.z = 0.0;
 
                 servoState.data = true; 
-                operationMode.data = 3; 
+                operationMode.data = 3;
+                pub1.publish(operationMode);
+                pub2.publish(servoState);
+                cout << "\n if 1";
             }
-        
-            pub1.publish(operationMode);
-            pub2.publish(servoState);
+
+            else {//once we are close enough, actuate servo, what happens from 90-95
+                wheel_msg.linear.x = 0.2; //need to make sure of slow approach speed, probably can't go that slow and straight. Maybe 0.2
+                wheel_msg.linear.y = 0.0;
+                wheel_msg.linear.z = 0.0;
+
+                wheel_msg.angular.x = 0.0;
+                wheel_msg.angular.y = 0.0;
+                wheel_msg.angular.z = 0.0;
+                // servoState.data = false; 
+                // operationMode.data = 2; 
+                cout << "else";
+            }
             pub3.publish(wheel_msg);
         }
     }
@@ -80,7 +83,7 @@ int main (int argc, char **argv)
 {
     ros::init(argc, argv, "getBlock"); //Name of the node. Convention is file has same name as node
     ros::NodeHandle nh;
-
+    cout << "Hel!";
     ros::Rate r(20); // Hz
     Searcher cn = Searcher(&nh);
     while (ros::ok())
@@ -88,7 +91,7 @@ int main (int argc, char **argv)
             //ros::Timer timer1 = n.createTimer(ros::Duration(0.1), callback1); To set different rates for subs
             //ros::Timer timer2 = n.createTimer(ros::Duration(1.0), callback2);
             //If rates differ throughout, then can associate publish events into timed callbacks
-            
+            cout << "Hello World!";
             ros::spinOnce();
             cn.publishAll();
             r.sleep();
