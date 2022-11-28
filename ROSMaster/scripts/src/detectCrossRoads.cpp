@@ -49,8 +49,8 @@ class Crossroads {
     void publishAll() {
 
         std_msgs::Int8 mode;
-        bool path1_config = ((frontD > 0.30) && (leftD > 0.61) && (rightD > 0.61) && (backD > 0.61));
-        bool path2_config = ((frontD > 0.61) && (leftD > 0.30) && (rightD > 0.61) && (backD > 0.61));
+        bool path1_config = ((frontD > 0.25) && (leftD > 0.45) && (rightD > 0.45) && (backD > 0.45));
+        bool path2_config = ((frontD > 0.65) && (leftD > 0.19) && (rightD > 0.61) && (backD > 0.61));
         if ((path1_config or path2_config) && (startingMode == 3)) {
             mode.data = 4;
             pub1.publish(mode);
