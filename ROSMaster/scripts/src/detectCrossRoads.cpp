@@ -9,6 +9,9 @@ class Crossroads {
         float rightD;
         float frontD;
         float backD;
+        int8_t startingMode; // initialize data type in private
+
+
         ros::Publisher pub1; //create publisher object
         ros::Subscriber sub1; //subscriber object
         ros::Subscriber sub2; //subscriber object
@@ -33,10 +36,10 @@ class Crossroads {
     void callback_laser(const sensor_msgs::LaserScan& msg) {
         //code to process or clean data before passing to foo
 
-        frontD = msg.range[0]; //units in m
-        leftD = msg.range[180];
-        backD = msg.range[360];
-        rightD = msg.range[540];
+        frontD = msg.ranges[0]; //indexing into lidar data units in m
+        leftD = msg.ranges[180];
+        backD = msg.ranges[360];
+        rightD = msg.ranges[540];
     }
 
     void callback_mode(const std_msgs::Int8& msg) {
@@ -47,7 +50,7 @@ class Crossroads {
 
         std_msgs::Int8 mode;
         bool path1_config = ((frontD > 0.30) && (leftD > 0.61) && (rightD > 0.61) && (backD > 0.61));
-        bool path2_config = ((frontD > 0.61) && (leftD > 0.30) && (rightD > 0.61) && (backD > 0.61))
+        bool path2_config = ((frontD > 0.61) && (leftD > 0.30) && (rightD > 0.61) && (backD > 0.61));
         if ((path1_config or path2_config) && (startingMode == 3)) {
             mode.data = 4;
             pub1.publish(mode);
