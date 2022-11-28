@@ -138,7 +138,7 @@ def main():
     # Instanciate our avoider object
     avoider = Avoider(vel)
     # Initialize our node
-    rospy.init_node("obstacle_avoidance_node")
+    rospy.init_node("mode1_nav")
     # Subscribe to the "/scan" topic in order to read laser scans data from it
     rospy.Subscriber("/scan", LaserScan, avoider.identify_regions)
     rospy.Subscriber("/operation_mode", Int8, callback_mode)

@@ -58,7 +58,7 @@ class Crossroads {
 int main (int argc, char **argv)
 {
     int sleep_rate = 10; //10 Hz
-    ros::init(argc, argv, "detectBlock"); //Name of the node
+    ros::init(argc, argv, "detectCrossRoads"); //Name of the node
     ros::NodeHandle nh;
     // ros::param::get("/my_param_name", sleep_rate);
 
