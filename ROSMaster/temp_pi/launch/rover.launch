@@ -1,0 +1,12 @@
+<launch>
+    <node pkg="rosserial_python" type="serial_node.py" name="motor_Arduino" output="screen">
+        <param name="port" value="/dev/ttyUSB1"/>
+        <param name="baud" value="57600"/>
+    </node>
+    <node pkg="rosserial_python" type="serial_node.py" name="sensor_Arduino" output="screen">
+        <param name="port" value="/dev/ttyUSB2"/>
+        <param name="baud" value="57600"/>
+    </node>
+    <node pkg="pi_rover" type="lights.py" name="lights" output="screen"/>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+</launch>
