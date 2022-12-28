@@ -1,48 +1,38 @@
-# MIE444-MazeNavigatingRover
+# MazeNavigatingRover
+**Mechanical Engineering students of MIE444 at the University of Toronto**
 
-## Full Software Document: https://docs.google.com/document/d/1lz8dCtAcfdEPn22oHQNxec-p9zRUxTynh3FODX5LQ3g/edit?usp=sharing
+*Andres Cervera Rozo, Christopher Tong, Liam Toner, Nathalie Cristofaro*
 
-## LucidChart of Software Block Diagram https://lucid.app/lucidchart/8b5c168e-47c8-4b2c-ab84-a09593147f4b/edit?invitationId=inv_d3df19bc-a538-469b-985c-e3eddbc88c98#
 
-## Draw.io of rqt_graph https://drive.google.com/file/d/19oBc15LEmXVBJMFtRpe9i0yHVsOQdHcm/view?usp=sharing
-
+## Description
 Course project to autonomously navigate through a maze and retrieve a wooden block
 
-Make a Github account
+***Enter Summary of project, contest, 3 milestones, and key words of our design***
+- 360 degree Lidar
+- 3 Omni wheels for holonomic movement
+- Hector SLAM for mapping area
+- AMCL and move_base for localization and navigation to various waypoints
+- Gazebo simulation of maze for parameter tuning
+- Servo motor to retreive a block based on a Time of Flight sensor
+- 3 DC Motors with encoders for straight motion tuning
+- LED feedback
+- Laser-cut plywood chassis
+- 2 Arduino UNOs for rapid microcontroller response
+- Raspberry Pi for communication to remote ROS Master
+- 3D-printed sensor mounts and block retrieval mechanism
 
-Must have Git Bash, Arduino IDE, and preferably Git GUI installed and setup
 
-Open Git Bash and follow these steps to get ssh key (authentication to connect local computer to Github) https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-enter following commands
-`ssh-keygen -t ed25519 -C <YOUR.EMAIL@gmail.com`
+[Final document](https://github.com/andresc44/MIE444-MazeNavigatingRover/blob/main/Documents/MIE444%20Final%20Report.pdf)
 
-Note path used to generate key. For me it was /c/Users/Andre/.ssh/id_ed25519
+[Project Proposal](https://github.com/andresc44/MIE444-MazeNavigatingRover/blob/main/Documents/MIE444_Proposal_Team_11.pdf)
 
-Run command ` clip < /c/Users/Andre/.ssh/id_ed25519.pub` (if on windows)
-            go to file and open on Linux and potentially on Mac
+## Autonomous Rover
+![20221202_111324](https://user-images.githubusercontent.com/68564062/209738540-d7fcc23e-f447-4df6-b7d1-c6a384071460.jpg)
 
-Follow this link and click 'New SSH Key': https://github.com/settings/keys
+## Course Maze
+![20221202_111259](https://user-images.githubusercontent.com/68564062/209738535-605944c6-8e6b-4b0a-bea6-6a4d94fed2e3.jpg)
 
-Choose a name like 'SurfaceBookKey' that is personal to that machine
+Please view this video to view the successful completion of the first milestone
+[Trial Video](https://drive.google.com/file/d/1N6VmtPNb4CGCVo7hIk6XC2uphVTjW1oM/view?usp=sharing)
 
-Click Ctrl-V and the generated SSH key should appear
-
-Save key
-
-Open Git Bash
-
-Navigate (cd) to inside Arduino folder
-
-enter command `mkdir MIE444` to make new folder
-
-On your browser, click the big green code, click SSH, and copy the content of the cell as such: ![image](https://user-images.githubusercontent.com/68564062/194407265-92a315af-f8ea-46d6-bb84-b194fa2f0869.png)
-
-**Read next line carefully**
-Type `git clone` add 1 whitespace, right click on the screen, and paste from your clipboard, and press Enter
-
-On Git Bash, type `ls`, and you should see MIE444-MazeNavigatingRover appear as a subdirectory
-
-Now your github is linked to the project. Future steps will show you how to push and pull your progress
-
-If you are curious, this shows a quick overview of how Git works and how branches work: https://www.freecodecamp.org/news/git-and-github-for-beginners/
